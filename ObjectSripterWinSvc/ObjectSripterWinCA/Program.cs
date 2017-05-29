@@ -2,6 +2,7 @@
 using Framework.Data.Oracle;
 using Framework.IO;
 using ObjectSripterWinCA.Source.Manager;
+using ObjectSripterWinCA.Source.Queries;
 using ObjectSripterWinCA.Source.Values;
 using ObjectSripterWinSvc.Source.Queries;
 using System;
@@ -49,24 +50,40 @@ namespace ObjectSripterWinCA
                 if (!saveFolder.EndsWith("\\") && !saveFolder.EndsWith("/"))
                     saveFolder += "/";
 
-                saveFolder += AppValues.SaveFolderName + DateTime.Now.ToString(AppValues.DateFormat) + "/";
+                saveFolder += AppValues.SaveFolderName + $"_{DataManager.Instance.Connection.Owner.ToUpperInvariant()}" + DateTime.Now.ToString(AppValues.DateFormat) + "/";
                 string fullFileName = string.Empty;
 
+                int typeCounter = 0;
+                int typeCount = typeList.Length;
+                int objCounter = 0;
+                int objCount = 0;
                 foreach (var item in typeList)
                 {
+                    var typName = item.ToUpperInvariant();
                     try
                     {
-                        WriteLine($"----------------{item} TYPE START ----------------------------");
+                        objCount = 0;
+                        objCounter = 0;
+                        typeCounter++;
+                        WriteLine($"----------------{typName} TYPE START ({typeCounter}/{typeCount})----------------------------");
                         //WriteLine($"{item} Type Script is getting.");
-                        WriteLine($"Object List with {item} type will be scripted.");
+                        WriteLine($"Object List with {typName} type will be scripted.");
                         objLst = null;
-                        objLst = DataManager.Instance.GetObjects(item);
+                        objLst = DataManager.Instance.GetObjects(typName);
 
-                        if (objLst.Count > 0)
+                        if (objLst.Count == 0)
                         {
+                            objLst = DataManager.Instance.GetObjects(typName, new OracleObjectListV3());
+                        }
+
+                        objCount = objLst.Count;
+                        if (objCount > 0)
+                        {
+                            objCounter = 0;
                             foreach (var obj in objLst)
                             {
-                                WriteLine($"------------{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- START --------------");
+                                objCounter++;
+                                WriteLine($"------------{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- START ({objCounter}/{objCount})--------------");
                                 WriteLine($"{obj.TYPENAME} {obj.OWNER}.{obj.NAME} object is being writed.");
                                 //WriteLine(obj.ToString());
                                 scriptLst = null;
@@ -128,12 +145,12 @@ namespace ObjectSripterWinCA
                                     LogException(ex4);
                                 }
 
-                                WriteLine($"------------{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- END   --------------");
+                                WriteLine($"------------{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- END   ({objCounter}/{objCount})--------------");
                             }
                         }
                         else
                         {
-                            WriteLine($"No objects found with {item} Type.");
+                            WriteLine($"No objects found with {typName} Type.");
                         }
                     }
                     catch (Exception ex)
@@ -141,7 +158,7 @@ namespace ObjectSripterWinCA
                         LogException(ex);
                     }
 
-                    WriteLine($"----------------{item} TYPE END   ----------------------------");
+                    WriteLine($"----------------{typName} TYPE END   ({typeCounter}/{typeCount})----------------------------");
                 }
 
                 WriteLine("Script Operation has been finished.");

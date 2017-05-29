@@ -49,8 +49,11 @@
     <Compile Include="Source\Interfaces\IQuery.cs" />
     <Compile Include="Source\Manager\DataManager.cs" />
     <Compile Include="Source\Queries\OracleObjectList.cs" />
+    <Compile Include="Source\Queries\OracleObjectListV2.cs" />
+    <Compile Include="Source\Queries\OracleObjectListV3.cs" />
     <Compile Include="Source\Queries\OracleScriptList.cs" />
     <Compile Include="Source\Queries\OracleScriptListV2.cs" />
+    <Compile Include="Source\Values\AppConstants.cs" />
     <Compile Include="Source\Values\AppValues.cs" />
   </ItemGroup>
   <ItemGroup>
