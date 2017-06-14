@@ -83,57 +83,6 @@
         <setting key="" value="" />
       </conn-settings>
     </connection>
-    <!--<connection name="" type="">
-      <connection-string>
-      Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=HR;Password=oRa123;
-      </connection-string>
-      <connection-string-format></connection-string-format>
-      <format-keys keys="">
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-        <format-key key="" value="" />
-      </format-keys>
-       <conn-settings>
-         <setting key="Types" value="TABLE,PROCEDURE,FUNCTION,TRIGGER,PACKAGE,SEQUENCE,VIEW,INDEX,TYPE" />
-
-        <setting key="WriteConnectionStringToConsole" value="1" />
-
-        <setting key="SaveFolder" value="D:/Save" />
-
-        <setting key="DateFormat" value="yyyy_MM_dd_HH_mm_ss_FFF" />
-
-        <setting key="WriteScriptToConsole" value="0" />
-
-        <setting key="WriteEventToLog" value="0" />
-
-        <setting key="WriteEventToConsole" value="1" />
-
-        <setting key="WriteErrorToLog" value="0" />
-
-        <setting key="ErrorLogFile" value="error.log" />
-        <setting key="EventLogFile" value="service-events.log" />
-
-        <setting key="" value="" />
-    <setting key="" value="" />
-    <setting key="" value="" />
-    <setting key="" value="" />
-    <setting key="" value="" />
-      </conn-settings>
-    </connection>-->
   </connections>
   <settings>
     <!-- Metadata Scripti alınacak nesneler listesi. Nesneler arasında vrigül olması gerekir. -->
