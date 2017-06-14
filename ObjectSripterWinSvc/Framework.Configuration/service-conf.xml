@@ -9,7 +9,7 @@
         <format-key key="HOST_PORT" value="1521"/>
         <format-key key="SID" value="XE"/>
         <format-key key="UID" value="HR"/>
-        <format-key key="PWD" value="oRa123"/>
+        <format-key key="PWD" value="pwd"/>
       </format-keys>
       <conn-settings>
         <!-- Metadata Scripti alınacak nesneler listesi. Nesneler arasında vrigül olması gerekir. -->
