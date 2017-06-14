@@ -1,0 +1,7 @@
+E:\Projects\Gc_Projects\ObjectSripterWinSvc\ObjectSripterWinSvc_Git\ObjectSripterWinSvc\Framework.Data.Sql\bin\Debug\Framework.Data.Sql.dll
+E:\Projects\Gc_Projects\ObjectSripterWinSvc\ObjectSripterWinSvc_Git\ObjectSripterWinSvc\Framework.Data.Sql\bin\Debug\Framework.Data.Sql.pdb
+E:\Projects\Gc_Projects\ObjectSripterWinSvc\ObjectSripterWinSvc_Git\ObjectSripterWinSvc\Framework.Data.Sql\bin\Debug\Framework.Data.Core.dll
+E:\Projects\Gc_Projects\ObjectSripterWinSvc\ObjectSripterWinSvc_Git\ObjectSripterWinSvc\Framework.Data.Sql\bin\Debug\Framework.Data.Core.pdb
+E:\Projects\Gc_Projects\ObjectSripterWinSvc\ObjectSripterWinSvc_Git\ObjectSripterWinSvc\Framework.Data.Sql\obj\Debug\Framework.Data.Sql.csprojResolveAssemblyReference.cache
+E:\Projects\Gc_Projects\ObjectSripterWinSvc\ObjectSripterWinSvc_Git\ObjectSripterWinSvc\Framework.Data.Sql\obj\Debug\Framework.Data.Sql.dll
+E:\Projects\Gc_Projects\ObjectSripterWinSvc\ObjectSripterWinSvc_Git\ObjectSripterWinSvc\Framework.Data.Sql\obj\Debug\Framework.Data.Sql.pdb

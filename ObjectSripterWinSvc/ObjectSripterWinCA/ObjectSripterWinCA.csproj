@@ -46,36 +46,30 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Interfaces\IQuery.cs" />
-    <Compile Include="Source\Manager\DataManager.cs" />
-    <Compile Include="Source\Queries\OracleObjectList.cs" />
-    <Compile Include="Source\Queries\OracleObjectListV2.cs" />
-    <Compile Include="Source\Queries\OracleObjectListV3.cs" />
-    <Compile Include="Source\Queries\OracleScriptList.cs" />
-    <Compile Include="Source\Queries\OracleScriptListV2.cs" />
-    <Compile Include="Source\Values\AppConstants.cs" />
     <Compile Include="Source\Values\AppValues.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Common\Framework.Common.csproj">
+      <Project>{0f9558dd-f5a1-446e-9be0-4025ecaccf3f}</Project>
+      <Name>Framework.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Configuration\Framework.Configuration.csproj">
+      <Project>{9eac7f47-f11a-4250-9326-59eddfaed6dd}</Project>
+      <Name>Framework.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Data.Core\Framework.Data.Core.csproj">
       <Project>{0d73f3c2-812b-4736-88bf-1a0e0e526c79}</Project>
       <Name>Framework.Data.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Framework.Data.Oracle\Framework.Data.Oracle.csproj">
-      <Project>{22b1450f-f684-4a66-ac6c-e9eca8bfff6d}</Project>
-      <Name>Framework.Data.Oracle</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.IO\Framework.IO.csproj">
       <Project>{185756fd-a327-4c9b-9b73-8054a5602f15}</Project>
       <Name>Framework.IO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Reflection\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

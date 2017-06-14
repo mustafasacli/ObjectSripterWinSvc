@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <connections>
+    <connection name="ora" type="oracle">
+      <connection-string>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=HR;Password=oRa123;</connection-string>
+      <connection-string-format>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=#HOST_ADRESS#)(PORT=#HOST_PORT#)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=#SID#)));User Id=#UID#;Password=#PWD#;</connection-string-format>
+      <format-keys keys="HOST_ADRESS,HOST_PORT,SID,UID,PWD">
+        <format-key key="HOST_ADRESS" value="127.0.0.1" />
+        <format-key key="HOST_PORT" value="1521"/>
+        <format-key key="SID" value="XE"/>
+        <format-key key="UID" value="HR"/>
+        <format-key key="PWD" value="oRa123"/>
+      </format-keys>
+      <conn-settings>
+        <!-- Metadata Scripti alınacak nesneler listesi. Nesneler arasında vrigül olması gerekir. -->
+        <setting key="Types" value="TABLE,PROCEDURE,FUNCTION,TRIGGER,PACKAGE,SEQUENCE,VIEW,INDEX,TYPE" />
+
+        <!-- Bağlantı metnini ekrana yazdırır. -->
+        <setting key="WriteConnectionStringToConsole" value="1" />
+
+        <!-- Kaydetmek için dosya yolu. -->
+        <setting key="SaveFolder" value="D:/Save" />
+
+        <!-- Şimdilik kullanılmıyor. -->
+        <setting key="DateFormat" value="yyyy_MM_dd_HH_mm_ss_FFF" />
+
+        <!-- Scripti console a yazdırmak için WriteScriptToConsole key değerinin 1 yapılması yeterlidir. -->
+        <setting key="WriteScriptToConsole" value="0" />
+
+        <!-- Olay dosya loglama işlemi için var, 1 ise loglanır, değilse loglanmaz. -->
+        <setting key="WriteEventToLog" value="0" />
+
+        <!-- Olay ekran loglama işlemi için var, 1 ise loglanır, değilse loglanmaz. -->
+        <setting key="WriteEventToConsole" value="1" />
+
+        <!-- Olay hata dosya loglama işlemi için var, 1 ise loglanır, değilse loglanmaz. -->
+        <setting key="WriteErrorToLog" value="0" />
+
+        <setting key="ErrorLogFile" value="error.log" />
+        <setting key="EventLogFile" value="service-events.log" />
+
+        <!--<setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />-->
+      </conn-settings>
+    </connection>
+    <connection name="sql" type="sqlserver">
+      <connection-string></connection-string>
+      <connection-string-format>Data Source=#SRVR#;Initial Catalog=#DB_NAME#;Integrated Security=SSPI;</connection-string-format>
+      <format-keys keys="SRVR,DB_NAME">
+        <format-key key="SRVR" value=".\EXPRESS" />
+        <format-key key="DB_NAME" value="Adventureworks" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+      </format-keys>
+      <conn-settings>
+        <setting key="Types" value="SQ,U,FN,D,PK,TF,P,C,TR,F,V" />
+
+        <setting key="WriteConnectionStringToConsole" value="1" />
+
+        <setting key="SaveFolder" value="D:/Save" />
+
+        <setting key="DateFormat" value="yyyy_MM_dd_HH_mm_ss_FFF" />
+
+        <setting key="WriteScriptToConsole" value="0" />
+
+        <setting key="WriteEventToLog" value="0" />
+
+        <setting key="WriteEventToConsole" value="1" />
+
+        <setting key="WriteErrorToLog" value="0" />
+
+        <setting key="ErrorLogFile" value="error.log" />
+        <setting key="EventLogFile" value="service-events.log" />
+
+        <setting key="" value="" />
+        <setting key="" value="" />
+        <setting key="" value="" />
+        <setting key="" value="" />
+        <setting key="" value="" />
+      </conn-settings>
+    </connection>
+    <!--<connection name="" type="">
+      <connection-string>
+      Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=HR;Password=oRa123;
+      </connection-string>
+      <connection-string-format></connection-string-format>
+      <format-keys keys="">
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+        <format-key key="" value="" />
+      </format-keys>
+       <conn-settings>
+         <setting key="Types" value="TABLE,PROCEDURE,FUNCTION,TRIGGER,PACKAGE,SEQUENCE,VIEW,INDEX,TYPE" />
+
+        <setting key="WriteConnectionStringToConsole" value="1" />
+
+        <setting key="SaveFolder" value="D:/Save" />
+
+        <setting key="DateFormat" value="yyyy_MM_dd_HH_mm_ss_FFF" />
+
+        <setting key="WriteScriptToConsole" value="0" />
+
+        <setting key="WriteEventToLog" value="0" />
+
+        <setting key="WriteEventToConsole" value="1" />
+
+        <setting key="WriteErrorToLog" value="0" />
+
+        <setting key="ErrorLogFile" value="error.log" />
+        <setting key="EventLogFile" value="service-events.log" />
+
+        <setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />
+      </conn-settings>
+    </connection>-->
+  </connections>
+  <settings>
+    <!-- Metadata Scripti alınacak nesneler listesi. Nesneler arasında vrigül olması gerekir. -->
+    <setting key="Types" value="TABLE,PROCEDURE,FUNCTION,TRIGGER,PACKAGE,SEQUENCE,VIEW,INDEX,TYPE" />
+
+    <!-- Bağlantı metnini ekrana yazdırır. -->
+    <setting key="WriteConnectionStringToConsole" value="1" />
+
+    <!-- Kaydetmek için dosya yolu. -->
+    <setting key="SaveFolder" value="D:/Save" />
+
+    <!-- Şimdilik kullanılmıyor. -->
+    <setting key="DateFormat" value="yyyy_MM_dd_HH_mm_ss_FFF" />
+
+    <!-- Scripti console a yazdırmak için WriteScriptToConsole key değerinin 1 yapılması yeterlidir. -->
+    <setting key="WriteScriptToConsole" value="0" />
+
+    <!-- Olay dosya loglama işlemi için var, 1 ise loglanır, değilse loglanmaz. -->
+    <setting key="WriteEventToLog" value="0" />
+
+    <!-- Olay ekran loglama işlemi için var, 1 ise loglanır, değilse loglanmaz. -->
+    <setting key="WriteEventToConsole" value="1" />
+
+    <!-- Olay hata dosya loglama işlemi için var, 1 ise loglanır, değilse loglanmaz. -->
+    <setting key="WriteErrorToLog" value="0" />
+
+    <setting key="ErrorLogFile" value="error.log" />
+    <setting key="EventLogFile" value="service-events.log" />
+
+    <!--<setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />
+    <setting key="" value="" />-->
+  </settings>
+  <imported-assemblies>
+    <assembly type="oracle" namespace="Framework.Data.Oracle, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7c7586efeb7543a1" class="sth" />
+    <assembly type="sqlserver" namespace="Framework.Data.Sql, Version=1.0.0.0, Culture=neutral, PublicKeyToken=4b8410232f35b980" class="sth" />
+    <assembly type="" namespace="" class="" />
+  </imported-assemblies>
+</configuration>

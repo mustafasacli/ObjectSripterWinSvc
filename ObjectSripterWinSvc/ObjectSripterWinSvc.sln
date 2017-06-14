@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.IO", "Framework.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectSripterWinCA", "ObjectSripterWinCA\ObjectSripterWinCA.csproj", "{F9246675-FFD4-4750-9992-6417387D40E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Configuration", "Framework.Configuration\Framework.Configuration.csproj", "{9EAC7F47-F11A-4250-9326-59EDDFAED6DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Common", "Framework.Common\Framework.Common.csproj", "{0F9558DD-F5A1-446E-9BE0-4025ECACCF3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{F9246675-FFD4-4750-9992-6417387D40E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9246675-FFD4-4750-9992-6417387D40E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9246675-FFD4-4750-9992-6417387D40E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EAC7F47-F11A-4250-9326-59EDDFAED6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EAC7F47-F11A-4250-9326-59EDDFAED6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EAC7F47-F11A-4250-9326-59EDDFAED6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EAC7F47-F11A-4250-9326-59EDDFAED6DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F9558DD-F5A1-446E-9BE0-4025ECACCF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F9558DD-F5A1-446E-9BE0-4025ECACCF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F9558DD-F5A1-446E-9BE0-4025ECACCF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F9558DD-F5A1-446E-9BE0-4025ECACCF3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
