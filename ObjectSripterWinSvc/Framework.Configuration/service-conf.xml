@@ -2,7 +2,7 @@
 <configuration>
   <connections>
     <connection name="ora" type="oracle">
-      <connection-string>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=HR;Password=oRa123;</connection-string>
+      <connection-string></connection-string>
       <connection-string-format>Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=#HOST_ADRESS#)(PORT=#HOST_PORT#)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=#SID#)));User Id=#UID#;Password=#PWD#;</connection-string-format>
       <format-keys keys="HOST_ADRESS,HOST_PORT,SID,UID,PWD">
         <format-key key="HOST_ADRESS" value="127.0.0.1" />
