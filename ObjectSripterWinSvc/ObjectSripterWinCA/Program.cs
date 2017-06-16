@@ -14,10 +14,15 @@ namespace ObjectSripterWinCA
 {
     internal class Program
     {
+        private const string line = "--------";
+        private const string fullLine = "---------------------------------------------------";
+        private const string stars = "************************";
+
         private static void Main(string[] args)
         {
             try
             {
+
                 string fullFileName = string.Empty;
                 List<DbObject> objLst = null;
                 List<string> scriptLst = null;
@@ -43,36 +48,64 @@ namespace ObjectSripterWinCA
 
                 foreach (var item in ConfigurationManager.Assemblies)
                 {
-                    ass = Assembly.Load(item.Namespace);
-                    types = ass.GetExportedTypes();
-                    foreach (var typ in types)
+                    try
                     {
-                        type_name = item.TypeName.Trim().ToLowerInvariant();
-                        if (typ.IsClass && typ.GetInterfaces().Contains(typeof(ISvcConnection))
-                            && typ.IsAbstract == false && typeof(ISvcConnection).IsAssignableFrom(typ))
-                        {
-                            if (string.IsNullOrWhiteSpace(item.TypeName) == false)
-                            {
-                                dict.Add(type_name, (ISvcConnection)Activator.CreateInstance(typ));
-                            }
-                            Console.WriteLine($"{typ.FullName} --> Interface List contains ISvcConnection.");
-                            Console.WriteLine($"{typ.FullName} Assembly Name --> {typ.Assembly.FullName}.");
-                        }
+                        ass = null;
+                        types = null;
+                        ass = Assembly.Load(item.Namespace);
+                        types = ass.GetExportedTypes();
 
-                        if (typ.IsClass && typ.GetInterfaces().Contains(typeof(IDataManager))
-                            && typ.IsAbstract == false && typeof(IDataManager).IsAssignableFrom(typ))
+                        if (types == null) continue;
+
+                        foreach (var typ in types)
                         {
-                            if (string.IsNullOrWhiteSpace(item.TypeName) == false)
+                            type_name = item.TypeName.Trim().ToLowerInvariant();
+                            try
                             {
-                                dictMan.Add(type_name, (IDataManager)Activator.CreateInstance(typ));
+                                if (typ.IsClass && typ.GetInterfaces().Contains(typeof(ISvcConnection))
+                                                        && typ.IsAbstract == false && typeof(ISvcConnection).IsAssignableFrom(typ))
+                                {
+                                    if (string.IsNullOrWhiteSpace(item.TypeName) == false)
+                                    {
+                                        dict.Add(type_name, (ISvcConnection)Activator.CreateInstance(typ));
+                                    }
+                                    WriteLine($"{typ.FullName} --> Interface List contains ISvcConnection.");
+                                    WriteLine($"{typ.FullName} Assembly Name --> {typ.Assembly.FullName}.");
+                                }
                             }
-                            Console.WriteLine($"{typ.FullName} --> Interface List contains IDataManager.");
-                            Console.WriteLine($"{typ.FullName} Assembly Name --> {typ.Assembly.FullName}.");
+                            catch (Exception e2)
+                            {
+                                LogException(e2);
+                            }
+
+                            try
+                            {
+                                if (typ.IsClass && typ.GetInterfaces().Contains(typeof(IDataManager))
+                                                        && typ.IsAbstract == false && typeof(IDataManager).IsAssignableFrom(typ))
+                                {
+                                    if (string.IsNullOrWhiteSpace(item.TypeName) == false)
+                                    {
+                                        dictMan.Add(type_name, (IDataManager)Activator.CreateInstance(typ));
+                                    }
+                                    WriteLine($"{typ.FullName} --> Interface List contains IDataManager.");
+                                    WriteLine($"{typ.FullName} Assembly Name --> {typ.Assembly.FullName}.");
+                                }
+                            }
+                            catch (Exception e3)
+                            {
+                                LogException(e3);
+                            }
                         }
                     }
+                    catch (Exception e)
+                    {
+                        LogException(e);
+                    }
                 }
+                WriteLine($"{dict.Count} Connection is(are) detected.");
+                WriteLine($"{dictMan.Count} Manager is(are) detected.");
 
-                WriteLine("---------------------------------------------------");
+                WriteLine(fullLine);
                 WriteLine("Script Operation has been started.");
                 foreach (FConnectionSetting item in ConfigurationManager.ConnectionSettings)
                 {
@@ -104,25 +137,25 @@ namespace ObjectSripterWinCA
                         WriteLine(item.ConnectionStringFormat);
                         WriteLine(item.ConnectionType);
                         WriteLine("FormatKeyValues: ");
-                        WriteLine("---------------------------------------------------");
+                        WriteLine(fullLine);
                         foreach (var keyVal in item.FormatKeyValues)
                         {
                             WriteLine(keyVal.Key);
                             WriteLine(keyVal.Value);
-                            WriteLine("************************");
+                            WriteLine(stars);
                         }
 
                         WriteLine("Settings: ");
-                        WriteLine("---------------------------------------------------");
+                        WriteLine(fullLine);
                         foreach (var keyVal in item.Settings)
                         {
                             WriteLine(keyVal.Key);
                             WriteLine(keyVal.Value);
-                            WriteLine("************************");
+                            WriteLine(stars);
                         }
 
                         if (item.WriteEventToConsole)
-                            WriteLine("------------------------------------------");
+                            WriteLine(fullLine);
 
                         WriteLine(item.GetFormattedConnString());
                         dataMan.Connection.Test();
@@ -141,7 +174,7 @@ namespace ObjectSripterWinCA
                             typeCounter++;
                             if (item.WriteEventToConsole)
                             {
-                                WriteLine($"----------------{typName} TYPE START ({typeCounter}/{typeCount})----------------------------");
+                                WriteLine($"{line}{typName} TYPE START ({typeCounter}/{typeCount}){line}");
                                 WriteLine($"Object List with {typName} type will be scripted.");
                             }
 
@@ -156,7 +189,7 @@ namespace ObjectSripterWinCA
                                 LogException(dataMan.GetObjectsError);
                             }
 
-                            #endregion
+                            #endregion [ Getting Object List ]
 
                             objCount = objLst.Count;
 
@@ -169,7 +202,7 @@ namespace ObjectSripterWinCA
 
                                     if (item.WriteEventToConsole)
                                     {
-                                        WriteLine($"------------{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- START ({objCounter}/{objCount})--------------");
+                                        WriteLine($"{line}{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- START ({objCounter}/{objCount}){line}");
                                         WriteLine($"{obj.TYPENAME} {obj.OWNER}.{obj.NAME} object is being writed.");
                                     }
 
@@ -194,7 +227,7 @@ namespace ObjectSripterWinCA
                                         LogException(dataMan.GetScriptOfObjectError);
                                     }
 
-                                    #endregion
+                                    #endregion [ Getting Metadata Script ]
 
                                     if (item.WriteEventToConsole)
                                     {
@@ -233,7 +266,7 @@ namespace ObjectSripterWinCA
                                     }
 
                                     if (item.WriteEventToConsole)
-                                        WriteLine($"------------{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- END   ({objCounter}/{objCount})--------------");
+                                        WriteLine($"{line}{obj.TYPENAME} {obj.OWNER}.{obj.NAME} -- END   ({objCounter}/{objCount}){line}");
                                 }
                             }
                             else
@@ -248,10 +281,9 @@ namespace ObjectSripterWinCA
                         }
 
                         if (item.WriteEventToConsole)
-                            WriteLine($"----------------{typName} TYPE END   ({typeCounter}/{typeCount})----------------------------");
+                            WriteLine($"{line}{typName} TYPE END   ({typeCounter}/{typeCount}){line}");
                     }
 
-                    WriteLine("Script Operation has been finished.");
                 }
             }
             catch (Exception e)
@@ -259,11 +291,15 @@ namespace ObjectSripterWinCA
                 LogException(e);
             }
 
+            WriteLine("Script Operation has been finished.");
+
             Console.ReadKey();
         }
 
-        private static void LogException(Exception e)
+        private static void LogException(Exception e, bool writeError2LogFile = false)
         {
+            WriteLine(line);
+            WriteLine("Error:");
             WriteLine($"Message: {e.Message}");
             WriteLine($"StackTrace: {e.StackTrace}");
         }

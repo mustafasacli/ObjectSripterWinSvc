@@ -8,7 +8,7 @@ namespace Framework.Data.Oracle.Connection
 {
     public class ConnectionOracle : ISvcConnection
     {
-        public string ConnType { get { return "Oracle"; } }
+        public string ConnType { get { return "oracle"; } }
 
         public string ConnectionString { get; set; } = string.Empty;
 
