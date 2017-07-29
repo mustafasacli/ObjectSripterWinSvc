@@ -9,7 +9,6 @@ namespace Framework.Data.Core.Base
 {
     public abstract class BaseDataManager : IDataManager
     {
-
         protected BaseDataManager()
         { }
 
@@ -24,6 +23,12 @@ namespace Framework.Data.Core.Base
         public abstract List<DbObject> GetObjects(string typeName);
 
         public abstract List<string> GetScriptOfObject(DbObject obj);
+
+        public abstract string GetSelectScript(DbObject obj);
+
+        public abstract string DataRow2String(DataRow row);
+
+        public abstract List<DbObject> GetTables();
 
         protected virtual List<DbObject> GetListOfObjects(string typeName, IQuery query)
         {

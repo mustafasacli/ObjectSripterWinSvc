@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D73F3C2-812B-4736-88BF-1A0E0E526C79}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{4D4D553F-51DE-4E92-80AF-6C46EC6C8BC0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Framework.Data.Core</RootNamespace>
-    <AssemblyName>Framework.Data.Core</AssemblyName>
+    <RootNamespace>TableDataSripterWinCA</RootNamespace>
+    <AssemblyName>TableDataSripterWinCA</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,18 +24,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>sn.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,22 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BaseDataManager.cs" />
-    <Compile Include="Query\InsertQueryFormat.cs" />
-    <Compile Include="Query\InsertWithSchemQueryFormat.cs" />
-    <Compile Include="Query\SelectQueryFormat.cs" />
-    <Compile Include="Interfaces\IQuery.cs" />
-    <Compile Include="Interfaces\IQueryFormat.cs" />
-    <Compile Include="Query\SelectWithSchemQueryFormat.cs" />
-    <Compile Include="Types\DbObject.cs" />
-    <Compile Include="Interfaces\IDataManager.cs" />
-    <Compile Include="Interfaces\ISvcConnection.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\ConvertUtil.cs" />
-    <Compile Include="Values\AppConstants.cs" />
+    <Compile Include="Source\Values\AppValues.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="sn.snk" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
